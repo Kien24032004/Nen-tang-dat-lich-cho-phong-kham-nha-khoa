@@ -26,7 +26,7 @@
 						<p class="fs-4 text-center">User Register</p>
 						
 						<c:if test="${not empty sucMsg }">
-							<p class="text-center text-success fs-3">${sucMsg}</p>
+							<p class="text-center text-info fs-3">${sucMsg}</p>
 							<c:remove var="sucMsg" scope="session"/>
 						</c:if>
 						
@@ -51,7 +51,7 @@
 									name="password" type="password" class="form-control">
 							</div>
 							
-							<button type="submit" class="btn bg-success text-white col-md-12">Register</button>
+							<button type="submit" class="btn bg-info text-white col-md-12">Register</button>
 						</form>
 					</div>
 				</div>

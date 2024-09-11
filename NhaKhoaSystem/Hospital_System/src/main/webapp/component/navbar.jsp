@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="index.jsp"><i
 			class="fa-regular fa-hospital"></i> Nha Khoa TrungKien</a>
@@ -20,8 +20,8 @@
 
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="doctor_login.jsp">DOCTOR</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="user_appointment.jsp">APPOITNMENT</a></li>
+					<!--  <li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="user_appointment.jsp">APPOITNMENT</a></li> -->
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="user_login.jsp">USER</a></li>
 
@@ -37,7 +37,7 @@
 						aria-current="page" href="view_appointment.jsp">VIEW APPOINTMENT</a></li>
 
 					<div class="dropdown">
-						<button class="btn btn-success dropdown-toggle" type="button"
+						<button class="btn btn-light dropdown-toggle" type="button"
 							id="dropdownMenuButton1" data-bs-toggle="dropdown"
 							aria-expanded="false"><i class="fa-solid fa-circle-user"></i> ${userObj.fullName}</a></button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">

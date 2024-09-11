@@ -29,7 +29,7 @@
 				<div class="card">
 					<p class="text-center fs-3">Change Password</p>
 					<c:if test="${not empty succMsg }">
-						<p class="text-center text-success fs-3">${succMsg}</p>
+						<p class="text-center text-info fs-3">${succMsg}</p>
 						<c:remove var="succMsg" scope="session" />
 					</c:if>
 
@@ -49,7 +49,7 @@
 								name="newPassword" class="form-control" required>
 						</div>
 						<input type="hidden" value="${userObj.id }" name="uid">
-						<button class="btn btn-success col-md-12">Change Password</button>
+						<button class="btn btn-info col-md-12">Change Password</button>
 						</form>
 
 					</div>

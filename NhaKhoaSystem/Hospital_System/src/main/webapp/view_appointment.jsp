@@ -43,7 +43,7 @@
 			<div class="col-md-9">
 				<div class="card paint-card">
 					<div class="card-body">
-						<p class="fs-4 fw-bold text-center text-success">Appointment List</p>
+						<p class="fs-4 fw-bold text-center text-info">Appointment List</p>
 						<table class="table">
 							<thead>
 								<tr>

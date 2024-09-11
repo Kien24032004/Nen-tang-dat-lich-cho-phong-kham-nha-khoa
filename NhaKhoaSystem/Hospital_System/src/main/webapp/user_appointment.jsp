@@ -56,7 +56,7 @@ response.setDateHeader("Expires", 0);
 							<c:remove var="errorMsg" scope="session" />
 						</c:if>
 						<c:if test="${not empty succMsg }">
-							<p class="fs-4 text-center text-success">${succMsg}</p>
+							<p class="fs-4 text-center text-info">${succMsg}</p>
 							<c:remove var="succMsg" scope="session" />
 						</c:if>
 						<form class="row g-3" action="appAppointment" method="post">
@@ -131,10 +131,10 @@ response.setDateHeader("Expires", 0);
 
 							<c:if test="${empty userObj }">
 								<a href="user_login.jsp"
-									class="col-md-6 offset-md-3 btn btn-success">Submit</a>
+									class="col-md-6 offset-md-3 btn btn-info">Submit</a>
 							</c:if>
 							<c:if test="${not empty userObj }">
-								<button class="col-md-6 offset-md-3 btn btn-success">Submit</button>
+								<button class="col-md-6 offset-md-3 btn btn-info">Submit</button>
 							</c:if>
 						</form>
 					</div>
