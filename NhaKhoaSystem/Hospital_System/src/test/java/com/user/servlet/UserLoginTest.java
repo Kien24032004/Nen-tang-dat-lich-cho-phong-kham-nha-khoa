@@ -1,0 +1,77 @@
+package com.user.servlet;
+
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import com.dao.UserDao;
+import com.db.DBConnect;
+import com.entity.User;
+
+public class UserLoginTest extends Mockito {
+
+    private UserLogin servlet;
+    private HttpServletRequest request;
+    private HttpServletResponse response;
+    private HttpSession session;
+    private UserDao userDao;
+
+    @BeforeEach
+    public void setUp() {
+        servlet = new UserLogin();
+        request = mock(HttpServletRequest.class);
+        response = mock(HttpServletResponse.class);
+        session = mock(HttpSession.class);
+        userDao = mock(UserDao.class);
+
+        when(request.getSession()).thenReturn(session);
+        DBConnect.setConnection(mock(java.sql.Connection.class));  // Mocking DB connection
+    }
+
+    @Test
+    public void testDoPost_LoginSuccess() throws ServletException, IOException {
+        // Arrange
+        String email = "user@example.com";
+        String password = "password";
+        User user = new User("John Doe", email, password);
+
+        when(request.getParameter("email")).thenReturn(email);
+        when(request.getParameter("password")).thenReturn(password);
+        when(userDao.login(email, password)).thenReturn(user);
+
+        // Act
+        servlet.doPost(request, response);
+
+        // Assert
+        verify(session).setAttribute("userObj", user);
+        verify(response).sendRedirect("index.jsp");
+    }
+
+    @Test
+    public void testDoPost_LoginFailure() throws ServletException, IOException {
+        // Arrange
+        String email = "user@example.com";
+        String password = "wrongpassword";
+
+        when(request.getParameter("email")).thenReturn(email);
+        when(request.getParameter("password")).thenReturn(password);
+        when(userDao.login(email, password)).thenReturn(null);
+
+        // Act
+        servlet.doPost(request, response);
+
+        // Assert
+        verify(session).setAttribute("errorMsg", "Email hoặc password không hợp lệ!!");
+        verify(response).sendRedirect("user_login.jsp");
+    }
+}
